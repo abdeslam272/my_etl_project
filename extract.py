@@ -1,0 +1,7 @@
+import pandas as pd
+
+def extract_data():
+    """Extract data from CSV into pandas DataFrame."""
+    url = 'https://raw.githubusercontent.com/abdeslam272/Python-exercices/main/Superstore.csv'
+    df = pd.read_csv(url, encoding='ISO-8859-1')
+    return df
