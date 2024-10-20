@@ -35,10 +35,3 @@ def save_data(dim_customer, dim_time, fact_sales):
     fact_sales.to_csv('data/fact_sales.csv', index=False)
     print("fact_sales.csv saved successfully.")
 
-if __name__ == "__main__":
-    # Load data
-    dim_customer, dim_time, fact_sales = load_data()
-
-    # Save data
-    save_data(dim_customer, dim_time, fact_sales)
-
