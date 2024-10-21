@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: etl_app
+    volumes:
+      - .:/app
+      - ./data:/data
+    environment:
+      - DB_PATH=/data/dim_customer.sqlite
+    command: python main.py
