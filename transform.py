@@ -17,8 +17,25 @@ def check_duplicate_records(df):
     return duplicate_count, duplicate_rows
 
 def check_range_or_boundary(df):
-    print("\nChecking range/boundary of Sales, Quantity, Discount, and Profit...")
-    print(df[['Sales', 'Quantity', 'Discount', 'Profit']].describe())
+    """Check the range and boundary conditions for specific columns."""
+    
+    # Check if df is a DataFrame
+    if isinstance(df, pd.DataFrame):
+        print(df[['Sales', 'Quantity', 'Discount', 'Profit']].describe())
+    else:
+        print("Error: The variable 'df' is not a DataFrame.")
+        return None  # or raise an exception if preferred
+
+    # Additional checks for range/boundary conditions can go here
+    # For example:
+    if df['Sales'].min() < 0:
+        print("Warning: There are negative sales values.")
+    if df['Quantity'].min() < 0:
+        print("Warning: There are negative quantities.")
+    # Add similar checks for Discount and Profit as needed
+    
+    return df  # Ensure you return the DataFrame at the end
+
 
 def check_consistency(df):
     print("\nChecking consistency between Order Date and Ship Date...")
