@@ -7,18 +7,19 @@ def main():
     df = extract_data()
 
     # Step 2: Transform
-    df = check_missing_data(df)
-    df = check_duplicate_records(df)
-    df = check_range_or_boundary(df)
-    df = check_consistency(df)
-    df = check_uniqueness(df)
-    df = check_data_types(df)
-    df = check_cardinality(df)
-    df = check_date_range(df)
-    df = check_profit_integrity(df)
-    df = check_categories(df)
+    if df is not None:
+        df = check_missing_data(df)
+        df = check_duplicate_records(df)
+        df = check_range_or_boundary(df)
+        df = check_consistency(df)
+        df = check_uniqueness(df)
+        df = check_data_types(df)
+        df = check_cardinality(df)
+        df = check_date_range(df)
+        df = check_profit_integrity(df)
+        df = check_categories(df)
 
-    df = transform_data(df)
+        df = transform_data(df)
 
     # Step 3: Load
     dim_customer, dim_time, fact_sales = load_data()
