@@ -16,8 +16,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Expose port (if needed)
-EXPOSE 8000
+# Create data directory
+RUN mkdir -p /app/data
+
+# # Expose port (if needed)
+# EXPOSE 8000
 
 # Run the application
 CMD ["python", "main.py"]
