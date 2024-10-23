@@ -1,9 +1,10 @@
+# load.py
 import os
 import pandas as pd
 
-def load_data():
-    # Load the transformed Superstore dataset
-    Superstore = pd.read_csv('superstore_transformed.csv')  # Assuming the cleaned and transformed data is saved
+def load_data(transformed_df):
+    # Use the transformed DataFrame directly instead of reading from CSV
+    Superstore = transformed_df
 
     # 1. Create the Dimensional and Fact tables
 
@@ -34,4 +35,3 @@ def save_data(dim_customer, dim_time, fact_sales):
     # Save fact_sales
     fact_sales.to_csv('data/fact_sales.csv', index=False)
     print("fact_sales.csv saved successfully.")
-
