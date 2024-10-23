@@ -30,15 +30,15 @@ def check_range_or_boundary(df):
         print("Error: 'df' is None. Cannot check range or boundary conditions.")
         return None
     
-    if isinstance(df, pd.DataFrame):
-        try:
-            print(df[['Sales', 'Quantity', 'Discount', 'Profit']].describe())
-        except KeyError as e:
-            print(f"Error: Missing expected columns for range check: {e}")
-            return None
-    else:
-        print("Error: The variable 'df' is not a DataFrame.")
-        return None
+    # if isinstance(df, pd.DataFrame):
+    #     try:
+    #         print(df[['Sales', 'Quantity', 'Discount', 'Profit']].describe())
+    #     except KeyError as e:
+    #         print(f"Error: Missing expected columns for range check: {e}")
+    #         return None
+    # else:
+    #     print("Error: The variable 'df' is not a DataFrame.")
+    #     return None
 
     # Additional checks for range/boundary conditions
     if df['Sales'].min() < 0:
