@@ -40,11 +40,28 @@ def check_range_or_boundary(df):
     #     print("Error: The variable 'df' is not a DataFrame.")
     #     return None
 
+    # Check if 'Sales' column exists in df
+    if 'Sales' not in df.columns:
+        print("Error: 'Sales' column is missing from the DataFrame.")
+        return None
+
+    # Ensure df['Sales'] and df['Quantity'] are numeric types
+    if not pd.api.types.is_numeric_dtype(df['Sales']):
+        print("Error: 'Sales' column is not numeric.")
+        return None
+    if not pd.api.types.is_numeric_dtype(df['Quantity']):
+        print("Error: 'Quantity' column is not numeric.")
+        return None
+
     # Additional checks for range/boundary conditions
-    if df['Sales'].min() < 0:
-        print("Warning: There are negative sales values.")
-    if df['Quantity'].min() < 0:
-        print("Warning: There are negative quantities.")
+    try:
+        if df['Sales'].min() < 0:
+            print("Warning: There are negative sales values.")
+        if df['Quantity'].min() < 0:
+            print("Warning: There are negative quantities.")
+    except TypeError as e:
+        print(f"Error: An issue occurred while checking ranges: {e}")
+    
     return df
 
 def check_consistency(df):
