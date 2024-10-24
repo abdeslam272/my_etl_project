@@ -1,18 +1,18 @@
 import pandas as pd
 
-# def validate_df(df, required_columns):
-#     if df is None:
-#         print("Error: 'df' is None.")
-#         return False
+def validate_df(df, required_columns):
+    if df is None:
+        print("Error: 'df' is None.")
+        return False
     
-#     if not isinstance(df, pd.DataFrame):
-#         print(f"Error: Expected DataFrame, but got {type(df)} instead.")
-#         return False
+    if not isinstance(df, pd.DataFrame):
+        print(f"Error: Expected DataFrame, but got {type(df)} instead.")
+        return False
 
-#     missing_columns = [col for col in required_columns if col not in df.columns]
-#     if missing_columns:
-#         print(f"Error: Missing columns: {missing_columns}")
-#         return False
+    missing_columns = [col for col in required_columns if col not in df.columns]
+    if missing_columns:
+        print(f"Error: Missing columns: {missing_columns}")
+        return False
 
 #     return True
 
