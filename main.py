@@ -34,7 +34,7 @@ def main():
     print(transformed_df.head())  # Print the first few rows of the transformed DataFrame
 
     # If you want to save the transformed DataFrame to a file (optional)
-    transformed_df.to_csv('transformed_data.csv', index=False)
+    transformed_df.to_csv('data\transformed_data.csv', index=False)
     print("\nTransformed data saved to 'transformed_data.csv'.")
 
     # Step 3: Load

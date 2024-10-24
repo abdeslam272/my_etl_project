@@ -12,7 +12,8 @@ def load_data(transformed_df):
     dim_customer = Superstore[['Customer ID', 'Customer Name', 'Segment', 'Country', 'City', 'Postal Code', 'Region']].drop_duplicates()
 
     # dim_time: Contains the date information
-    dim_time = Superstore[['Order Date', 'Order Year', 'Order Month']].drop_duplicates()
+    dim_time = Superstore[['Order Date']].drop_duplicates()
+#    dim_time = Superstore[['Order Date', 'Order Year', 'Order Month']].drop_duplicates()
 
     # fact_sales: Contains sales-related metrics
     fact_sales = Superstore[['Order ID', 'Product ID', 'Sales', 'Quantity', 'Discount', 'Profit', 'Shipping Duration']]
