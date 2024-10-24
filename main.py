@@ -1,9 +1,10 @@
 from extract import extract_data
-from transform import (
-    check_missing_data, check_duplicate_records, check_range_or_boundary,
-    check_consistency, check_uniqueness, check_data_types, check_cardinality,
-    check_date_range, check_profit_integrity, check_categories, transform_data
-)
+from transform import transform_data
+# (
+#     check_missing_data, check_duplicate_records, check_range_or_boundary,
+#     check_consistency, check_uniqueness, check_data_types, check_cardinality,
+#     check_date_range, check_profit_integrity, check_categories, transform_data
+# )
 from load import load_data, save_data
 
 def main():
