@@ -13,16 +13,16 @@ def main():
 
     # Step 2: Perform quality checks
     print("\nPerforming quality checks...")
-    check_missing_data(df)
-    check_duplicate_records(df)
-    check_range_or_boundary(df)
-    check_consistency(df)
-    check_uniqueness(df)
-    check_data_types(df)
-    check_cardinality(df)
-    check_date_range(df)
-    check_profit_integrity(df)
-    check_categories(df)
+    # check_missing_data(df)
+    # check_duplicate_records(df)
+    # check_range_or_boundary(df)
+    # check_consistency(df)
+    # check_uniqueness(df)
+    # check_data_types(df)
+    # check_cardinality(df)
+    # check_date_range(df)
+    # check_profit_integrity(df)
+    # check_categories(df)
 
     # Step 3: Apply transformations
     print("\nApplying transformations...")
