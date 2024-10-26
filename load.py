@@ -27,18 +27,14 @@ def load_data(transformed_df):
     return dim_customer, dim_time, fact_sales
 
 def save_data(dim_customer, dim_time, fact_sales):
-    # Ensure 'data/' directory exists
-    if not os.path.exists('data'):
-        os.makedirs('data')
-
     # Save dim_customer
-    dim_customer.to_csv(output_path+"/dim_time.csv", index= False, header=False)
+    dim_customer.to_csv(f"{output_path}/dim_customer.csv", index=False, header=False)
     print("dim_customer.csv saved successfully.")
 
     # Save dim_time
-    dim_time.to_csv(output_path+"/dim_time.csv", index= False, header=False)
+    dim_time.to_csv(f"{output_path}/dim_time.csv", index=False, header=False)
     print("dim_time.csv saved successfully.")
 
     # Save fact_sales
-    fact_sales.to_csv(output_path+"/dim_time.csv", index= False, header=False)
+    fact_sales.to_csv(f"{output_path}/fact_sales.csv", index=False, header=False)
     print("fact_sales.csv saved successfully.")
