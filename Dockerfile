@@ -7,6 +7,15 @@ ENV PYTHONUNBUFFERED=1
 # Set the working directory in the container
 WORKDIR /app
 
+#create container volume mounting to host dir so that the python script can read and write data from host
+VOLUME /app/input
+VOLUME /app/output
+
+#creating preset  environment variables to be used used for the python script
+ENV INPUT_DIR='/app/data/input'
+ENV OUTPUT_DIR='/app/data/output'
+
+
 # Copy the requirements file into the container
 COPY requirements.txt ./
 

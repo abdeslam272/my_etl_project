@@ -2,6 +2,11 @@
 import os
 import pandas as pd
 
+
+# Define the variable
+input_path = os.environ['INPUT_DIR']
+output_path = os.environ['OUTPUT_DIR']
+
 def load_data(transformed_df):
     # Use the transformed DataFrame directly instead of reading from CSV
     Superstore = transformed_df
@@ -27,13 +32,13 @@ def save_data(dim_customer, dim_time, fact_sales):
         os.makedirs('data')
 
     # Save dim_customer
-    dim_customer.to_csv('data/dim_customer.csv', index=False)
+    dim_customer.to_csv(output_path+"/dim_time.csv", index= False, header=False)
     print("dim_customer.csv saved successfully.")
 
     # Save dim_time
-    dim_time.to_csv('data/dim_time.csv', index=False)
+    dim_time.to_csv(output_path+"/dim_time.csv", index= False, header=False)
     print("dim_time.csv saved successfully.")
 
     # Save fact_sales
-    fact_sales.to_csv('data/fact_sales.csv', index=False)
+    fact_sales.to_csv(output_path+"/dim_time.csv", index= False, header=False)
     print("fact_sales.csv saved successfully.")
