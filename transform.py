@@ -109,13 +109,17 @@ def transform_data(df):
         df['Order Date'] = pd.to_datetime(df['Order Date'], errors='coerce')
         df['Ship Date'] = pd.to_datetime(df['Ship Date'], errors='coerce')
         
+        # Drop rows where dates couldn't be parsed
+        df = df.dropna(subset=['Order Date', 'Ship Date'])
+        
         # Apply transformations
         df['Shipping Duration'] = (df['Ship Date'] - df['Order Date']).dt.days
         df['Order Year'] = df['Order Date'].dt.year
         df['Order Month'] = df['Order Date'].dt.month
         
-        # Check if columns were created
+        # Check if transformations were applied
         print("Columns created:", df.columns)
+        print(df[['Order Date', 'Ship Date', 'Shipping Duration', 'Order Year', 'Order Month']].head())
         print("Transformations applied.")
     else:
         print("Validation failed. Required columns missing.")
