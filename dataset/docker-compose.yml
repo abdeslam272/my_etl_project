@@ -12,6 +12,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./pagila-dataset/exports:/app/exports  # Map exports folder to host for CSV files
 
 volumes:
   postgres_data:
