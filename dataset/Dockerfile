@@ -12,6 +12,9 @@ RUN mkdir -p /app/exports
 # Copy the Pagila dataset into the Docker image
 COPY pagila-dataset/pagila-data.sql /docker-entrypoint-initdb.d/pagila-data.sql
 
+# Install bash to ensure the script can run
+RUN apt-get update && apt-get install -y bash && rm -rf /var/lib/apt/lists/*
+
 # Copy the export_to_csv.sh script to the initialization directory
 COPY export_to_csv.sh /docker-entrypoint-initdb.d/
 RUN chmod +x /docker-entrypoint-initdb.d/export_to_csv.sh
