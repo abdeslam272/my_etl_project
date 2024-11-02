@@ -2,14 +2,13 @@
 FROM postgres:latest
 
 # Set environment variables for PostgreSQL
-ENV POSTGRES_USER=my_user
-ENV POSTGRES_PASSWORD=my_password
-ENV POSTGRES_DB=my_database
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=postgres
+ENV POSTGRES_DB=pagila
 
-# Create a directory for initialization scripts
-COPY pagila-dataset/* /docker-entrypoint-initdb.d/
+# Copy the SQL file and the export script into the initialization directory
+COPY pagila-dataset/pagila_data.sql /docker-entrypoint-initdb.d/
 COPY export_to_csv.sh /docker-entrypoint-initdb.d/
-RUN chmod +x /docker-entrypoint-initdb.d/export_to_csv.sh
 
-# (Optional) Add the path to any SQL files if needed
-COPY pagila-dataset/*.sql /docker-entrypoint-initdb.d/
+# Give execute permissions to the export script
+RUN chmod +x /docker-entrypoint-initdb.d/export_to_csv.sh

@@ -1,18 +1,16 @@
 version: '3.8'
 
 services:
-  postgres:
+  pagila_db:
     build: .
     container_name: pagila_db
     environment:
-      POSTGRES_USER: my_user
-      POSTGRES_PASSWORD: my_password
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: pagila
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./pagila-dataset/exports:/app/exports  # Map exports folder to host for CSV files
-
-volumes:
-  postgres_data:
+      - ./pagila-dataset:/docker-entrypoint-initdb.d
+      - ./export_to_csv.sh:/docker-entrypoint-initdb.d/export_to_csv.sh
+      - ./csv-output:/csv-output  # Directory where CSV files will be saved
