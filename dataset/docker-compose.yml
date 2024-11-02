@@ -11,6 +11,6 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./pagila-dataset:/docker-entrypoint-initdb.d
+      - ./dataset/pagila-dataset:/docker-entrypoint-initdb.d
       - ./export_to_csv.sh:/docker-entrypoint-initdb.d/export_to_csv.sh
       - ./csv-output:/csv-output  # Directory where CSV files will be saved
